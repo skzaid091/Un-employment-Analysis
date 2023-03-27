@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.set_page_config(layout='wide')
-data = pd.read_csv('unemployment_rate_data.csv')
+data = pd.read_csv('data/unemployment_rate_data.csv')
 
 
 def empty_space():
@@ -60,7 +60,7 @@ drop_down_years = years.tolist()
 drop_down_years.insert(0, 'Overall')
 year = st.sidebar.selectbox('Select Year', drop_down_years)
 
-drop_down_months = ['Overall', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+drop_down_months = ['Overall', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 month = st.sidebar.selectbox('Select Month', drop_down_months)
 
 
@@ -111,9 +111,12 @@ if year == 'Overall':
     fig, fx = plt.subplots()
     fx = sns.lineplot(data=new_data, x='year', y='avg_unrate')
     plt.figure(figsize=(15, 15))
+    st.title('Un-employment over the Years')
     st.pyplot(fig)
 if year != 'Overall':
     fig, fx = plt.subplots()
     fx = sns.lineplot(data=data[data['year'] == year], x='month', y='unrate')
     plt.figure(figsize=(15, 15))
+    st.title('Un-employment in year : ' + str(year))
     st.pyplot(fig)
+
