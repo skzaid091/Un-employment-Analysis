@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.set_page_config(layout='wide')
-data = pd.read_csv('data/unemployment_rate_data.csv')
+data = pd.read_csv('unemployment_rate_data.csv')
 
 
 def empty_space():
